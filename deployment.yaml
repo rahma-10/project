@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: my-deployment
+
+
+spec:
+  selector: 
+    matchLabels: 
+      app: rahma
+  replicas: 3
+  template: 
+    metadata:
+      name: my-web-app
+      labels:
+        app: rahma
+    spec:
+      containers:
+        - name: my-nginx-app
+          image: rahma310/nginx-test
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80 
